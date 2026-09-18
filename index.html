@@ -10,6 +10,11 @@
   <title>Second Sight Foundation | Ancient Wisdom Meets Modern Science</title>
 
   <!-- Google Fonts -->
+    <!-- Security & Anti-Tampering Headers -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https:;">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
@@ -60,6 +65,16 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- 1.5 Trust Guarantee Ribbon -->
+  <div class="trust-guarantee-bar">
+    <div class="container trust-bar-grid">
+      <div class="trust-item"><i class="fa-solid fa-certificate"></i> <span>AYUSH Standard Ayurvedic Formulation</span></div>
+      <div class="trust-item"><i class="fa-solid fa-truck-fast"></i> <span>Complimentary Shipping on ₹999+</span></div>
+      <div class="trust-item"><i class="fa-solid fa-shield-halved"></i> <span>256-Bit Encrypted Secure Ordering</span></div>
+      <div class="trust-item"><i class="fa-solid fa-leaf"></i> <span>Zero Artificial Preservatives</span></div>
     </div>
   </div>
 
@@ -216,7 +231,7 @@
       </div>
 
       <!-- Controls: Category Tabs, Search, Sort -->
-      <div class="product-controls-bar">
+      <div class="product-controls-bar sticky-filter-bar">
         <div id="categoryTabs" class="category-filter-tabs">
           <button class="cat-tab-btn active" data-category="all">All Products</button>
           <button class="cat-tab-btn" data-category="tea">Wellness Teas</button>
@@ -488,7 +503,9 @@
           <h3>Send Us a Message</h3>
           <p>Fill out the form below and we will respond within 24 hours.</p>
 
-          <form id="contactForm">
+          <form id="contactForm" novalidate>
+            <!-- Anti-Spam Bot Honeypot -->
+            <input type="text" name="b_url" class="hp-field" tabindex="-1" autocomplete="off">
             <div class="form-row">
               <div class="form-group">
                 <label for="firstName">First Name *</label>
@@ -658,7 +675,9 @@
       <h3 style="font-family:var(--font-serif); font-size:1.6rem; margin-bottom:8px;">Secure Express Checkout</h3>
       <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:24px;">Enter your delivery destination and select payment method.</p>
 
-      <form id="checkoutForm">
+      <form id="checkoutForm" novalidate>
+        <!-- Anti-Spam Bot Honeypot -->
+        <input type="text" name="b_chk" class="hp-field" tabindex="-1" autocomplete="off">
         <div class="form-row">
           <div class="form-group">
             <label>Full Name *</label>
@@ -764,6 +783,31 @@
       </div>
     </div>
   </div>
+
+  <!-- 18. Mobile App-Style Bottom Navigation Bar -->
+  <nav class="mobile-bottom-nav" aria-label="Mobile Navigation">
+    <a href="#hero" class="mob-nav-item active" onclick="window.SSF.setMobActive(this)">
+      <i class="fa-solid fa-house"></i>
+      <span>Home</span>
+    </a>
+    <a href="#products" class="mob-nav-item" onclick="window.SSF.setMobActive(this)">
+      <i class="fa-solid fa-store"></i>
+      <span>Shop</span>
+    </a>
+    <button class="mob-nav-item" onclick="document.querySelector('.healing-matcher-section').scrollIntoView({behavior:'smooth'})">
+      <i class="fa-solid fa-wand-magic-sparkles"></i>
+      <span>Quiz</span>
+    </button>
+    <button class="mob-nav-item" onclick="window.SSF.openCart()">
+      <i class="fa-solid fa-bag-shopping"></i>
+      <span>Bag</span>
+      <span id="mobileBottomCartBadge" class="mob-cart-count">0</span>
+    </button>
+    <a href="https://wa.me/919716517463" target="_blank" rel="noopener noreferrer" class="mob-nav-item">
+      <i class="fa-brands fa-whatsapp" style="color:#25d366;"></i>
+      <span>Chat</span>
+    </a>
+  </nav>
 
 </body>
 </html>

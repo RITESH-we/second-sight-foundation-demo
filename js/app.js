@@ -251,6 +251,8 @@
 
     const mobileBadge = document.getElementById('mobileCartBadge');
     if (mobileBadge) mobileBadge.textContent = totalCount;
+    const mobBottomBadge = document.getElementById('mobileBottomCartBadge');
+    if (mobBottomBadge) mobBottomBadge.textContent = totalCount;
 
     if (!cartItemsList) return;
 
@@ -422,6 +424,66 @@
     }
   }
 
+
+  // =========================================================================
+  // ADVANCED SECURITY & INPUT SANITIZATION ENGINE
+  // =========================================================================
+  function sanitizeInput(str) {
+    if (typeof str !== 'string') return '';
+    const map = {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#x27;',
+      '/': '&#x2F;'
+    };
+    return str.replace(/[&<>"'/]/ig, (match) => map[match]).trim();
+  }
+
+  let lastSubmissionTime = 0;
+  function isRateLimited() {
+    const now = Date.now();
+    if (now - lastSubmissionTime < 4000) {
+      showToast('Please wait a moment before submitting again.', '⚠️');
+      return true;
+    }
+    lastSubmissionTime = now;
+    return false;
+  }
+
+  function initScrollspy() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.main-header .nav-link');
+
+    window.addEventListener('scroll', () => {
+      let currentSection = '';
+      const scrollPos = window.scrollY + 130;
+
+      sections.forEach((sec) => {
+        const top = sec.offsetTop;
+        const height = sec.offsetHeight;
+        if (scrollPos >= top && scrollPos < top + height) {
+          currentSection = sec.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach((link) => {
+        const href = link.getAttribute('href');
+        if (href === '#' + currentSection) {
+          link.classList.add('active');
+        } else if (currentSection && href.startsWith('#')) {
+          link.classList.remove('active');
+        }
+      });
+    });
+  }
+
+  function setMobActive(btn) {
+    document.querySelectorAll('.mob-nav-item').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+
   // Store orders locally and dispatch to WhatsApp
   let ordersList = JSON.parse(localStorage.getItem('ssf_orders_log')) || [];
   let leadsList = JSON.parse(localStorage.getItem('ssf_leads_log')) || [];
@@ -429,11 +491,22 @@
   function handleCheckoutSubmit(e) {
     e.preventDefault();
     const form = e.target;
-    const name = form.querySelector('input[placeholder*="Jatin"]') ? form.querySelector('input[placeholder*="Jatin"]').value.trim() : 'Customer';
-    const phone = form.querySelector('input[type="tel"]').value.trim();
-    const address = form.querySelector('input[placeholder*="House"]').value.trim();
-    const city = form.querySelector('input[placeholder*="New Delhi"]').value.trim();
-    const pincode = form.querySelector('input[placeholder*="110027"]').value.trim();
+    // Security: Honeypot & Rate Limiting check
+    const honeypot = form.querySelector('input[name="b_chk"]');
+    if (honeypot && honeypot.value !== '') return;
+    if (isRateLimited()) return;
+
+    const rawName = form.querySelector('input[placeholder*="Jatin"]') ? form.querySelector('input[placeholder*="Jatin"]').value : 'Customer';
+    const rawPhone = form.querySelector('input[type="tel"]').value;
+    const rawAddress = form.querySelector('input[placeholder*="House"]').value;
+    const rawCity = form.querySelector('input[placeholder*="New Delhi"]').value;
+    const rawPincode = form.querySelector('input[placeholder*="110027"]').value;
+
+    const name = sanitizeInput(rawName);
+    const phone = rawPhone.replace(/[^0-9]/g, '');
+    const address = sanitizeInput(rawAddress);
+    const city = sanitizeInput(rawCity);
+    const pincode = sanitizeInput(rawPincode);
     const paymentMethod = form.querySelector('select').value.toUpperCase();
 
     if (cart.length === 0) {
@@ -499,12 +572,16 @@
     if (!form) return;
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const fname = document.getElementById('firstName').value.trim();
-      const lname = document.getElementById('lastName').value.trim();
-      const email = document.getElementById('emailAddr').value.trim();
-      const phone = document.getElementById('phoneNum').value.trim();
-      const subject = document.getElementById('subjectSelect').value;
-      const message = document.getElementById('messageText').value.trim();
+      const hp = form.querySelector('input[name="b_url"]');
+      if (hp && hp.value !== '') return;
+      if (isRateLimited()) return;
+
+      const fname = sanitizeInput(document.getElementById('firstName').value);
+      const lname = sanitizeInput(document.getElementById('lastName').value);
+      const email = sanitizeInput(document.getElementById('emailAddr').value);
+      const phone = document.getElementById('phoneNum').value.replace(/[^0-9]/g, '');
+      const subject = sanitizeInput(document.getElementById('subjectSelect').value);
+      const message = sanitizeInput(document.getElementById('messageText').value);
 
       const lead = {
         date: new Date().toLocaleString('en-IN'),
@@ -983,6 +1060,7 @@
     if (themeBtn) themeBtn.addEventListener('click', toggleTheme);
     initSaleCountdown();
     initLiveSalesPopup();
+    initScrollspy();
 
     const applyPromoBtn = document.getElementById('applyPromoBtn');
     if (applyPromoBtn) applyPromoBtn.addEventListener('click', applyPromoCode);

@@ -2487,3 +2487,141 @@ body {
 [data-theme="dark"] .scarcity-pill {
   color: #fb923c;
 }
+
+
+/* ==========================================================================
+   SECURITY, MOBILE APP BAR & ENHANCED NAVIGATION
+   ========================================================================== */
+
+/* Trust Guarantee Banner */
+.trust-guarantee-bar {
+  background: var(--theme-card-subtle);
+  border-bottom: 1px solid var(--theme-border);
+  padding: 10px 0;
+  font-size: 0.82rem;
+  color: var(--theme-text-muted);
+}
+
+.trust-bar-grid {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  color: var(--theme-text-main);
+}
+
+.trust-item i {
+  color: var(--primary-gold);
+  font-size: 1.1rem;
+}
+
+/* Mobile App Bottom Navigation Bar */
+.mobile-bottom-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--theme-header-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid var(--theme-border);
+  padding: 8px 12px;
+  z-index: 180;
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.08);
+  justify-content: space-around;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .mobile-bottom-nav {
+    display: flex;
+  }
+  body {
+    padding-bottom: 64px;
+  }
+  .floating-whatsapp-btn {
+    bottom: 76px !important;
+    left: 16px !important;
+    width: 48px !important;
+    height: 48px !important;
+  }
+  .back-to-top-btn {
+    bottom: 76px !important;
+    right: 16px !important;
+  }
+  .live-sale-popup {
+    bottom: 80px !important;
+    left: 14px !important;
+    right: 14px !important;
+    max-width: calc(100% - 28px) !important;
+  }
+}
+
+.mob-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  color: var(--theme-text-muted);
+  font-size: 0.72rem;
+  font-weight: 500;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s;
+  padding: 4px 8px;
+}
+
+.mob-nav-item i {
+  font-size: 1.15rem;
+}
+
+.mob-nav-item.active, .mob-nav-item:hover {
+  color: var(--primary-gold);
+}
+
+.mob-cart-count {
+  position: absolute;
+  top: 0;
+  right: 6px;
+  background: var(--gold-gradient);
+  color: #000;
+  font-size: 0.65rem;
+  font-weight: 800;
+  min-width: 16px;
+  height: 16px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sticky-filter-bar {
+  position: sticky;
+  top: 80px;
+  z-index: 85;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.hp-field {
+  display: none !important;
+  visibility: hidden !important;
+  position: absolute !important;
+  left: -9999px !important;
+}
+
+button, a.btn {
+  min-height: 44px;
+  touch-action: manipulation;
+}
