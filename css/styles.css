@@ -3194,3 +3194,265 @@ button, a.btn {
     height: 38px !important;
   }
 }
+
+
+/* ==========================================================================
+   SACRED KUNDALINI JAGRAN & THIRD EYE (AJNA) ACTIVATION STYLING
+   ========================================================================== */
+
+/* Glowing Sacred Ambient Background */
+.kundalini-chakra-section {
+  padding: 80px 0;
+  background: radial-gradient(circle at 50% 30%, rgba(99, 102, 241, 0.12) 0%, rgba(15, 23, 42, 0.98) 70%), var(--slate-950);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(212, 175, 55, 0.25);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+}
+
+.chakra-yantra-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 32rem;
+  color: rgba(212, 175, 55, 0.03);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.chakra-explorer-wrapper {
+  position: relative;
+  z-index: 10;
+}
+
+/* Chakra Horizontal Selector Strip */
+.chakra-nav-strip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+
+@media (max-width: 768px) {
+  .chakra-nav-strip {
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 14px 10px;
+    scrollbar-width: none;
+  }
+  .chakra-nav-strip::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.chakra-btn {
+  background: rgba(30, 41, 59, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #e2e8f0;
+  padding: 10px 18px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.chakra-btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--chakra-color, var(--primary-gold));
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.3);
+}
+
+.chakra-btn.active {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.98));
+  border-color: var(--chakra-color, var(--primary-gold));
+  color: #fff;
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+  transform: scale(1.06);
+}
+
+.chakra-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: var(--radius-full);
+  background-color: var(--chakra-color, var(--primary-gold));
+  box-shadow: 0 0 8px var(--chakra-color, var(--primary-gold));
+}
+
+/* Active Chakra Showcase Display Card */
+.chakra-active-card {
+  background: linear-gradient(135deg, rgba(26, 34, 53, 0.85) 0%, rgba(15, 23, 42, 0.95) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: var(--radius-xl);
+  padding: 40px;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .chakra-active-card {
+    grid-template-columns: 1fr;
+    padding: 24px 18px;
+    gap: 24px;
+  }
+}
+
+.chakra-card-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+  border: 1px solid currentColor;
+}
+
+.chakra-sanskrit-title {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+
+.chakra-sanskrit-sub {
+  font-size: 1.1rem;
+  color: var(--primary-gold);
+  margin-bottom: 18px;
+  font-style: italic;
+}
+
+.chakra-meta-specs {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.spec-pill {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  color: #e2e8f0;
+}
+
+.spec-pill strong {
+  color: var(--primary-gold);
+}
+
+.chakra-meaning-text {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #cbd5e1;
+  margin-bottom: 28px;
+}
+
+/* Matching Remedies Box */
+.matching-remedies-box {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+}
+
+.matching-remedies-box h4 {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: var(--primary-gold);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.matching-remedy-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.04);
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.matching-remedy-item:hover {
+  background: rgba(212, 175, 55, 0.15);
+  border-color: var(--primary-gold);
+  transform: translateX(4px);
+}
+
+.remedy-img-mini {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  background: #fff;
+}
+
+.remedy-details-mini strong {
+  display: block;
+  font-size: 0.92rem;
+  color: #fff;
+}
+
+.remedy-details-mini span {
+  font-size: 0.78rem;
+  color: var(--primary-gold);
+}
+
+/* Third Eye Hero Callout Box */
+.third-eye-callout {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(212, 175, 55, 0.15) 100%);
+  border: 1px solid rgba(99, 102, 241, 0.4);
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+@media (max-width: 600px) {
+  .third-eye-callout {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+}
+
+.third-eye-icon-glow {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-full);
+  background: #6366f1;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  box-shadow: 0 0 24px rgba(99, 102, 241, 0.8);
+  flex-shrink: 0;
+}

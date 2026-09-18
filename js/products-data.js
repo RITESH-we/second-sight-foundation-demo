@@ -511,3 +511,85 @@ const FAQ_DATA = [
     a: "Our teas are gentle, dietary botanical supplements. However, if you are currently taking prescription medications for blood pressure, diabetes, or other chronic conditions, we always recommend consulting your healthcare physician prior to starting any new regimen."
   }
 ];
+
+
+// Chakra & Kundalini Resonance Mapping
+const CHAKRAS_DATA = [
+  {
+    id: "ajna",
+    name: "Ajna (Third Eye)",
+    sanskrit: "आज्ञा चक्र",
+    color: "#6366f1",
+    mantra: "OM / AUM",
+    element: "Light & Higher Perception",
+    significance: "The seat of intuition, clairvoyance, and spiritual wisdom. Awakening the Third Eye decalcifies the pineal gland and allows the seeker to perceive subtle energies beyond the physical realm.",
+    matchingProducts: ["brain-booster-tea", "alkaline-glass-water-bottle", "spiritual-baaghi-book"],
+    icon: "fa-eye"
+  },
+  {
+    id: "sahasrara",
+    name: "Sahasrara (Crown)",
+    sanskrit: "सहस्रार चक्र",
+    color: "#a855f7",
+    mantra: "SILENCE / AUM",
+    element: "Cosmic Consciousness",
+    significance: "The final destination of the Kundalini serpent. Unlocks boundless cosmic consciousness, ego dissolution, and divine union with universal intelligence.",
+    matchingProducts: ["aura-spray-set-2", "the-spiritual-baaghi-book"],
+    icon: "fa-crown"
+  },
+  {
+    id: "vishuddha",
+    name: "Vishuddha (Throat)",
+    sanskrit: "विशुद्ध चक्र",
+    color: "#0284c7",
+    mantra: "HAM",
+    element: "Space & Truth",
+    significance: "Governs authentic self-expression, sacred sound resonance, and truth. Clears psychic speech blockages and opens clear vibrational communication.",
+    matchingProducts: ["ssf-drops", "ayurvedic-inhaler"],
+    icon: "fa-microphone-lines"
+  },
+  {
+    id: "anahata",
+    name: "Anahata (Heart)",
+    sanskrit: "अनाहत चक्र",
+    color: "#10b981",
+    mantra: "YAM",
+    element: "Air & Compassion",
+    significance: "The bridge between physical and spiritual chakras. Radiates unconditional divine love, emotional forgiveness, and cosmic attraction.",
+    matchingProducts: ["love-and-attraction-spray", "heart-herbal-tea"],
+    icon: "fa-heart"
+  },
+  {
+    id: "manipura",
+    name: "Manipura (Solar Plexus)",
+    sanskrit: "मणिपूर चक्र",
+    color: "#eab308",
+    mantra: "RAM",
+    element: "Fire & Willpower",
+    significance: "The inner fire (Agni) fueling metabolic transformation, divine confidence, and spiritual discipline needed to hold Kundalini shakti.",
+    matchingProducts: ["digest-harmony-tea", "liver-detox-tea", "diabetes-tea-powder"],
+    icon: "fa-fire"
+  },
+  {
+    id: "svadhisthana",
+    name: "Svadhisthana (Sacral)",
+    sanskrit: "स्वाधिष्ठान चक्र",
+    color: "#f97316",
+    mantra: "VAM",
+    element: "Water & Prana",
+    significance: "Nurtures creative vitality, fluid life-force movement, and hormonal balance, releasing suppressed trauma.",
+    matchingProducts: ["vital-flow-herbal-tea", "ssf-facial-kit"],
+    icon: "fa-water"
+  },
+  {
+    id: "muladhara",
+    name: "Muladhara (Root)",
+    sanskrit: "मूलाधार चक्र",
+    color: "#ef4444",
+    mantra: "LAM",
+    element: "Earth & Kundalini Seat",
+    significance: "The foundational sanctuary where Kundalini Shakti rests in a 3.5 coil dormancy. Provides fearless grounding, ancestral healing, and bodily stability.",
+    matchingProducts: ["vital-roots-ca-tea", "arthveda-herbal-tea", "fiber-and-tea-combo"],
+    icon: "fa-tree"
+  }
+];

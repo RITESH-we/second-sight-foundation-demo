@@ -484,6 +484,104 @@
     btn.classList.add('active');
   }
 
+
+  // =========================================================================
+  // SACRED KUNDALINI JAGRAN & THIRD EYE ACTIVATION ENGINE
+  // =========================================================================
+  let activeChakraId = 'ajna'; // Default to Third Eye (Second Sight)
+
+  function renderChakraSection() {
+    const navStrip = document.getElementById('chakraNavStrip');
+    const cardEl = document.getElementById('chakraActiveCard');
+    if (!navStrip || !cardEl || typeof CHAKRAS_DATA === 'undefined') return;
+
+    // Render Navigation buttons
+    navStrip.innerHTML = CHAKRAS_DATA.map(c => `
+      <button class="chakra-btn ${c.id === activeChakraId ? 'active' : ''}" 
+              style="--chakra-color: ${c.color};" 
+              onclick="window.SSF.selectChakra('${c.id}')">
+        <span class="chakra-dot"></span>
+        <span>${c.name}</span>
+      </button>
+    `).join('');
+
+    // Find active chakra
+    const chakra = CHAKRAS_DATA.find(c => c.id === activeChakraId) || CHAKRAS_DATA[0];
+
+    // Find matching products
+    const matchingProducts = PRODUCTS_DATA.filter(p => chakra.matchingProducts.includes(p.id));
+    const remediesHtml = matchingProducts.map(p => `
+      <div class="matching-remedy-item" onclick="window.SSF.openQuickView('${p.id}')">
+        <img src="${p.image}" alt="${p.name}" class="remedy-img-mini" onerror="this.onerror=null; this.src='${p.fallbackImage}'">
+        <div class="remedy-details-mini" style="flex:1;">
+          <strong>${p.name}</strong>
+          <span>${formatPrice(p.price)} • ${p.badge}</span>
+        </div>
+        <button class="btn btn-outline btn-sm" style="padding:4px 8px;font-size:0.75rem;" onclick="event.stopPropagation(); window.SSF.addToCart('${p.id}', 1)">
+          + Bag
+        </button>
+      </div>
+    `).join('');
+
+    cardEl.innerHTML = `
+      <div>
+        <div class="chakra-card-badge" style="color:${chakra.color};background:rgba(255,255,255,0.06);">
+          <i class="fa-solid ${chakra.icon}"></i> ${chakra.name} Energy Center
+        </div>
+        <h3 class="chakra-sanskrit-title">${chakra.sanskrit}</h3>
+        <p class="chakra-sanskrit-sub">Sacred Bija Mantra: <strong>${chakra.mantra}</strong></p>
+
+        <div class="chakra-meta-specs">
+          <div class="spec-pill"><strong>Element:</strong> ${chakra.element}</div>
+          <div class="spec-pill"><strong>Energy State:</strong> Kundalini Conduit</div>
+        </div>
+
+        <p class="chakra-meaning-text">${chakra.significance}</p>
+
+        <button class="btn btn-primary" onclick="window.SSF.filterByChakra('${chakra.id}')">
+          <i class="fa-solid fa-wand-magic-sparkles"></i> View All ${chakra.name} Remedies
+        </button>
+      </div>
+
+      <div class="matching-remedies-box">
+        <h4><i class="fa-solid fa-leaf"></i> Formulations for ${chakra.name}</h4>
+        <div style="display:flex;flex-direction:column;gap:4px;">
+          ${remediesHtml}
+        </div>
+        <p style="font-size:0.75rem;color:#94a3b8;margin-top:12px;text-align:center;">
+          Botanically infused to activate dormant vibrational frequencies.
+        </p>
+      </div>
+    `;
+  }
+
+  function selectChakra(chakraId) {
+    activeChakraId = chakraId;
+    renderChakraSection();
+  }
+
+  function filterByChakra(chakraId) {
+    const chakra = CHAKRAS_DATA.find(c => c.id === chakraId);
+    if (!chakra) return;
+
+    activeCategory = 'all';
+    searchQuery = '';
+    if (searchInput) searchInput.value = '';
+    renderProducts();
+
+    // Scroll to products
+    const pSection = document.getElementById('products');
+    if (pSection) pSection.scrollIntoView({ behavior: 'smooth' });
+
+    // Open the primary matching product quick view
+    if (chakra.matchingProducts.length > 0) {
+      setTimeout(() => {
+        openQuickView(chakra.matchingProducts[0]);
+        showToast(`Selected ${chakra.name} Activation Formulation!`, '👁️');
+      }, 500);
+    }
+  }
+
   // Store orders locally and dispatch to WhatsApp
   let ordersList = JSON.parse(localStorage.getItem('ssf_orders_log')) || [];
   let leadsList = JSON.parse(localStorage.getItem('ssf_leads_log')) || [];
@@ -1093,6 +1191,7 @@
     initSaleCountdown();
     initLiveSalesPopup();
     initScrollspy();
+    renderChakraSection();
 
     const applyPromoBtn = document.getElementById('applyPromoBtn');
     if (applyPromoBtn) applyPromoBtn.addEventListener('click', applyPromoCode);
