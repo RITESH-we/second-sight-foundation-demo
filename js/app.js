@@ -422,16 +422,162 @@
     }
   }
 
+  // Store orders locally and dispatch to WhatsApp
+  let ordersList = JSON.parse(localStorage.getItem('ssf_orders_log')) || [];
+  let leadsList = JSON.parse(localStorage.getItem('ssf_leads_log')) || [];
+
   function handleCheckoutSubmit(e) {
     e.preventDefault();
-    showToast('Processing order securely...', '⏳');
+    const form = e.target;
+    const name = form.querySelector('input[placeholder*="Jatin"]') ? form.querySelector('input[placeholder*="Jatin"]').value.trim() : 'Customer';
+    const phone = form.querySelector('input[type="tel"]').value.trim();
+    const address = form.querySelector('input[placeholder*="House"]').value.trim();
+    const city = form.querySelector('input[placeholder*="New Delhi"]').value.trim();
+    const pincode = form.querySelector('input[placeholder*="110027"]').value.trim();
+    const paymentMethod = form.querySelector('select').value.toUpperCase();
+
+    if (cart.length === 0) {
+      showToast('Your bag is empty!', '⚠️');
+      return;
+    }
+
+    const orderId = 'SSF-' + Math.floor(100000 + Math.random() * 900000);
+    const subtotalINR = cart.reduce((sum, it) => sum + it.price * it.qty, 0);
+    const discountINR = (subtotalINR * appliedDiscountPercent) / 100;
+    const isFreeShipping = subtotalINR >= 999;
+    const totalINR = subtotalINR - discountINR + (isFreeShipping ? 0 : 99);
+
+    const itemsSummary = cart.map(it => `• ${it.name} (Qty: ${it.qty}) - ₹${it.price * it.qty}`).join('\n');
+
+    // Save order record
+    const newOrder = {
+      orderId,
+      date: new Date().toLocaleString('en-IN'),
+      name,
+      phone,
+      address: `${address}, ${city} - ${pincode}`,
+      items: cart.map(it => ({ id: it.id, name: it.name, qty: it.qty, price: it.price })),
+      total: totalINR,
+      paymentMethod
+    };
+
+    ordersList.unshift(newOrder);
+    localStorage.setItem('ssf_orders_log', JSON.stringify(ordersList));
+
+    // Construct WhatsApp message
+    const waText = `🌿 *NEW ORDER - SECOND SIGHT FOUNDATION*\n` +
+      `----------------------------------------\n` +
+      `🆔 *Order ID:* ${orderId}\n` +
+      `👤 *Customer:* ${name}\n` +
+      `📞 *Phone:* ${phone}\n` +
+      `📍 *Address:* ${address}, ${city} - ${pincode}\n` +
+      `💳 *Payment:* ${paymentMethod}\n\n` +
+      `📦 *Items Ordered:*\n${itemsSummary}\n\n` +
+      `💰 *Total Amount:* ₹${totalINR.toLocaleString('en-IN')}\n` +
+      `----------------------------------------\n` +
+      `Please confirm dispatch!`;
+
+    const waUrl = `https://wa.me/919716517463?text=${encodeURIComponent(waText)}`;
+
+    showToast('Processing order & opening WhatsApp...', '⏳');
+
     setTimeout(() => {
       closeModal('checkoutModal');
       cart = [];
       appliedDiscountPercent = 0;
       saveCart();
-      showToast('🎉 Order placed successfully! Confirmation email sent.', '✓');
-    }, 1200);
+
+      // Open confirmation modal or WhatsApp
+      window.open(waUrl, '_blank');
+      showToast(`🎉 Order ${orderId} placed! Stored in Customer Log.`, '✓');
+    }, 800);
+  }
+
+  // Contact Form Lead Logger
+  function initContactForm() {
+    const form = document.getElementById('contactForm');
+    if (!form) return;
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const fname = document.getElementById('firstName').value.trim();
+      const lname = document.getElementById('lastName').value.trim();
+      const email = document.getElementById('emailAddr').value.trim();
+      const phone = document.getElementById('phoneNum').value.trim();
+      const subject = document.getElementById('subjectSelect').value;
+      const message = document.getElementById('messageText').value.trim();
+
+      const lead = {
+        date: new Date().toLocaleString('en-IN'),
+        name: `${fname} ${lname}`,
+        email,
+        phone,
+        subject,
+        message
+      };
+
+      leadsList.unshift(lead);
+      localStorage.setItem('ssf_leads_log', JSON.stringify(leadsList));
+
+      const waText = `🌿 *NEW WEBSITE INQUIRY*\n` +
+        `👤 *Name:* ${fname} ${lname}\n` +
+        `📞 *Phone:* ${phone}\n` +
+        `📧 *Email:* ${email}\n` +
+        `❓ *Subject:* ${subject}\n` +
+        `💬 *Message:* ${message}`;
+
+      const waUrl = `https://wa.me/919716517463?text=${encodeURIComponent(waText)}`;
+
+      showToast('Thank you! Inquiry saved. Opening WhatsApp...', '✓');
+      setTimeout(() => {
+        window.open(waUrl, '_blank');
+      }, 700);
+
+      form.reset();
+    });
+  }
+
+  // Admin Export to CSV / View Orders
+  function openAdminLogs() {
+    const modal = document.getElementById('adminLogsModal');
+    const tableBody = document.getElementById('ordersTableBody');
+    if (!modal || !tableBody) return;
+
+    if (ordersList.length === 0) {
+      tableBody.innerHTML = `<tr><td colspan="5" style="text-align:center;padding:24px;color:var(--theme-text-muted);">No orders placed yet. Place an order to see live data!</td></tr>`;
+    } else {
+      tableBody.innerHTML = ordersList.map(o => `
+        <tr style="border-bottom:1px solid var(--theme-border);">
+          <td style="padding:10px 14px;font-weight:600;color:var(--primary-gold);">${o.orderId}</td>
+          <td style="padding:10px 14px;">${o.name}<br><small style="color:var(--theme-text-muted);">${o.phone}</small></td>
+          <td style="padding:10px 14px;font-size:0.85rem;">${o.items.map(it => it.name + ' (x' + it.qty + ')').join(', ')}</td>
+          <td style="padding:10px 14px;font-weight:700;">₹${o.total}</td>
+          <td style="padding:10px 14px;font-size:0.8rem;color:var(--theme-text-muted);">${o.date}</td>
+        </tr>
+      `).join('');
+    }
+
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function exportOrdersToCSV() {
+    if (ordersList.length === 0) {
+      showToast('No orders to export yet!', '⚠️');
+      return;
+    }
+    let csv = 'Order ID,Date,Customer Name,Phone,Address,Items,Total INR,Payment Method\n';
+    ordersList.forEach(o => {
+      const itemsStr = o.items.map(it => `${it.name} (x${it.qty})`).join('; ');
+      csv += `"${o.orderId}","${o.date}","${o.name}","${o.phone}","${o.address}","${itemsStr}","${o.total}","${o.paymentMethod}"\n`;
+    });
+
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `SSF_Customer_Orders_${new Date().toISOString().slice(0,10)}.csv`;
+    a.click();
+    showToast('Exported customer orders to CSV!', '📥');
   }
 
   // Rotating Ticker
@@ -860,6 +1006,8 @@
     toggleWishlist,
     buyNow,
     copyCoupon,
-    filterByGoal
+    filterByGoal,
+    openAdminLogs,
+    exportOrdersToCSV
   };
 })();
