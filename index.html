@@ -85,42 +85,17 @@
         <img src="assets/images/header2.png" alt="Second Sight Foundation Logo">
       </a>
 
-      <!-- Mobile Navigation Drawer Backdrop -->
-      <div id="mobileMenuOverlay" class="mobile-menu-overlay" onclick="window.SSF.closeMobileMenu()"></div>
-
-      <!-- Slide-Out Navigation Drawer -->
-      <nav id="mainNavLinks" class="nav-links">
-        <div class="mobile-drawer-header">
-          <img src="assets/images/header2.png" alt="Second Sight Foundation" style="height:38px;">
-          <button class="drawer-close-btn" onclick="window.SSF.closeMobileMenu()" aria-label="Close menu">&times;</button>
-        </div>
-
-        <ul class="drawer-menu-list">
-          <li><a href="#hero" class="nav-link active"><i class="fa-solid fa-house"></i> Home</a></li>
-          <li><a href="#products" class="nav-link"><i class="fa-solid fa-store"></i> Shop All Products</a></li>
-          <li><a href="#products" onclick="window.SSF.selectCategory('tea')" class="nav-link"><i class="fa-solid fa-mug-hot"></i> Wellness Teas</a></li>
-          <li><a href="#products" onclick="window.SSF.selectCategory('sprays')" class="nav-link"><i class="fa-solid fa-spray-can-sparkles"></i> Aura Sprays</a></li>
-          <li><a href="#about" class="nav-link"><i class="fa-solid fa-seedling"></i> About Our Mission</a></li>
-          <li><a href="#why-choose" class="nav-link"><i class="fa-solid fa-certificate"></i> Ayurvedic Purity</a></li>
-          <li><a href="#testimonials" class="nav-link"><i class="fa-solid fa-star"></i> Customer Reviews</a></li>
-          <li><a href="#faq" class="nav-link"><i class="fa-solid fa-circle-question"></i> FAQ & Delivery</a></li>
-          <li><a href="#contact" class="nav-link"><i class="fa-solid fa-envelope"></i> Contact & Consultation</a></li>
-        </ul>
-
-        <div class="mobile-drawer-footer">
-          <div class="drawer-action-group">
-            <button class="btn btn-outline btn-sm btn-block" onclick="window.SSF.toggleTheme();">
-              <i class="fa-solid fa-circle-half-stroke"></i> Switch Theme
-            </button>
-            <a href="https://wa.me/919716517463" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm btn-block" style="margin-top:8px;">
-              <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
-            </a>
-          </div>
-          <p style="font-size:0.75rem;color:var(--theme-text-muted);text-align:center;margin-top:14px;">
-            Second Sight Foundation • Vedic Wellness
-          </p>
-        </div>
-      </nav>
+      <!-- Desktop Navigation Links (Only visible on Desktop/Laptop) -->
+      <ul class="nav-links desktop-nav-links">
+        <li><a href="#hero" class="nav-link active">Home</a></li>
+        <li><a href="#products" class="nav-link">Shop Products</a></li>
+        <li><a href="#kundalini-chakras" class="nav-link">Kundalini & Third Eye</a></li>
+        <li><a href="#about" class="nav-link">About Us</a></li>
+        <li><a href="#why-choose" class="nav-link">Our Purity</a></li>
+        <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+        <li><a href="#faq" class="nav-link">FAQ</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
 
       <div class="header-actions">
         <a href="#products" class="search-trigger-btn" title="Search catalog">
@@ -852,6 +827,38 @@
   </div>
 
   <!-- 18. Mobile App-Style Bottom Navigation Bar -->
+    <!-- Mobile Slide-Out Drawer (Only triggered on mobile) -->
+  <div id="mobileMenuOverlay" class="mobile-menu-overlay" onclick="window.SSF.closeMobileMenu()"></div>
+  <aside id="mobileDrawer" class="mobile-drawer">
+    <div class="mobile-drawer-header">
+      <img src="assets/images/header2.png" alt="Second Sight Foundation" style="height:38px;">
+      <button class="drawer-close-btn" onclick="window.SSF.closeMobileMenu()" aria-label="Close menu">&times;</button>
+    </div>
+
+    <ul class="drawer-menu-list">
+      <li><a href="#hero" onclick="window.SSF.closeMobileMenu()"><i class="fa-solid fa-house"></i> Home</a></li>
+      <li><a href="#products" onclick="window.SSF.closeMobileMenu()"><i class="fa-solid fa-store"></i> Shop Products</a></li>
+      <li><a href="#kundalini-chakras" onclick="window.SSF.closeMobileMenu()"><i class="fa-solid fa-eye"></i> Kundalini & Third Eye</a></li>
+      <li><a href="#about" onclick="window.SSF.closeMobileMenu()"><i class="fa-solid fa-seedling"></i> About Our Mission</a></li>
+      <li><a href="#why-choose" onclick="window.SSF.closeMobileMenu()"><i class="fa-solid fa-certificate"></i> Ayurvedic Purity</a></li>
+      <li><a href="#testimonials" onclick="window.SSF.closeMobileMenu()"><i class="fa-solid fa-star"></i> Customer Reviews</a></li>
+      <li><a href="#faq" onclick="window.SSF.closeMobileMenu()"><i class="fa-solid fa-circle-question"></i> FAQ & Delivery</a></li>
+      <li><a href="#contact" onclick="window.SSF.closeMobileMenu()"><i class="fa-solid fa-envelope"></i> Contact & Consultation</a></li>
+    </ul>
+
+    <div class="mobile-drawer-footer">
+      <button class="btn btn-outline btn-sm btn-block" onclick="window.SSF.toggleTheme();">
+        <i class="fa-solid fa-circle-half-stroke"></i> Switch Theme
+      </button>
+      <a href="https://wa.me/919716517463" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm btn-block" style="margin-top:8px;">
+        <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+      </a>
+      <p style="font-size:0.75rem;color:var(--theme-text-muted);text-align:center;margin-top:12px;">
+        Second Sight Foundation • Vedic Wellness
+      </p>
+    </div>
+  </aside>
+
   <nav class="mobile-bottom-nav" aria-label="Mobile Navigation">
     <a href="#hero" class="mob-nav-item active" onclick="window.SSF.setMobActive(this)">
       <i class="fa-solid fa-house"></i>

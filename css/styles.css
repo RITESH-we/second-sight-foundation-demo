@@ -3463,3 +3463,174 @@ button, a.btn {
   box-shadow: 0 0 24px rgba(99, 102, 241, 0.8);
   flex-shrink: 0;
 }
+
+
+/* ==========================================================================
+   CLEAN NAVIGATION ISOLATION (DESKTOP VS MOBILE DRAWER)
+   ========================================================================== */
+
+/* Desktop Navigation (Laptops & Desktops >= 993px) */
+@media (min-width: 993px) {
+  .desktop-nav-links {
+    display: flex !important;
+    align-items: center !important;
+    gap: 24px !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .desktop-nav-links .nav-link {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--theme-nav-link);
+    padding: 6px 0;
+    position: relative;
+    white-space: nowrap;
+  }
+
+  .desktop-nav-links .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gold-gradient);
+    transition: width 0.3s ease;
+  }
+
+  .desktop-nav-links .nav-link:hover, .desktop-nav-links .nav-link.active {
+    color: var(--primary-gold);
+  }
+
+  .desktop-nav-links .nav-link:hover::after, .desktop-nav-links .nav-link.active::after {
+    width: 100%;
+  }
+
+  /* Completely HIDE mobile drawer, mobile overlay, and mobile toggle on Desktop */
+  .mobile-drawer {
+    display: none !important;
+  }
+
+  .mobile-menu-overlay {
+    display: none !important;
+  }
+
+  .mobile-menu-btn {
+    display: none !important;
+  }
+}
+
+/* Mobile Screens (<= 992px) */
+@media (max-width: 992px) {
+  .desktop-nav-links {
+    display: none !important;
+  }
+
+  .mobile-menu-btn {
+    display: flex !important;
+  }
+
+  .mobile-menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(9, 13, 22, 0.7);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    z-index: 240;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .mobile-drawer {
+    position: fixed !important;
+    top: 0 !important;
+    right: -100% !important;
+    width: 82% !important;
+    max-width: 320px !important;
+    height: 100vh !important;
+    background: var(--theme-modal-bg) !important;
+    flex-direction: column !important;
+    padding: 0 !important;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5) !important;
+    transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    z-index: 250 !important;
+    overflow-y: auto !important;
+    display: flex !important;
+    border-left: 1px solid var(--theme-border) !important;
+  }
+
+  .mobile-drawer.active {
+    right: 0 !important;
+  }
+
+  .mobile-drawer-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 16px 20px !important;
+    border-bottom: 1px solid var(--theme-border) !important;
+    margin-bottom: 8px !important;
+  }
+
+  .drawer-close-btn {
+    background: var(--theme-card-subtle) !important;
+    border: 1px solid var(--theme-border) !important;
+    color: var(--theme-text-main) !important;
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: var(--radius-full) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 1.4rem !important;
+    cursor: pointer !important;
+  }
+
+  .drawer-menu-list {
+    list-style: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+    padding: 0 12px !important;
+    margin: 0 !important;
+  }
+
+  .drawer-menu-list li a {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 10px 14px !important;
+    border-radius: var(--radius-sm) !important;
+    font-size: 0.95rem !important;
+    font-weight: 500 !important;
+    color: var(--theme-text-main) !important;
+    transition: all 0.2s ease !important;
+  }
+
+  .drawer-menu-list li a:hover, .drawer-menu-list li a.active {
+    background: rgba(212, 175, 55, 0.12) !important;
+    color: var(--primary-gold) !important;
+  }
+
+  .drawer-menu-list li a i {
+    width: 20px !important;
+    text-align: center !important;
+    color: var(--primary-gold) !important;
+  }
+
+  .mobile-drawer-footer {
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 16px 20px !important;
+    border-top: 1px solid var(--theme-border) !important;
+    margin-top: auto !important;
+  }
+}

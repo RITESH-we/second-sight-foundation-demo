@@ -907,20 +907,20 @@
 
   // Mobile Navigation Drawer Controller
   function openMobileMenu() {
-    const navLinks = document.getElementById('mainNavLinks');
+    const drawer = document.getElementById('mobileDrawer');
     const overlay = document.getElementById('mobileMenuOverlay');
-    if (navLinks && overlay) {
-      navLinks.classList.add('active');
+    if (drawer && overlay) {
+      drawer.classList.add('active');
       overlay.classList.add('active');
       document.body.style.overflow = 'hidden';
     }
   }
 
   function closeMobileMenu() {
-    const navLinks = document.getElementById('mainNavLinks');
+    const drawer = document.getElementById('mobileDrawer');
     const overlay = document.getElementById('mobileMenuOverlay');
-    if (navLinks && overlay) {
-      navLinks.classList.remove('active');
+    if (drawer && overlay) {
+      drawer.classList.remove('active');
       overlay.classList.remove('active');
       document.body.style.overflow = '';
     }
@@ -928,7 +928,7 @@
 
   function initMobileMenu() {
     const toggleBtn = document.getElementById('mobileMenuToggle');
-    const navLinks = document.getElementById('mainNavLinks');
+    const drawer = document.getElementById('mobileDrawer');
     const overlay = document.getElementById('mobileMenuOverlay');
 
     if (toggleBtn) {
@@ -942,8 +942,8 @@
       overlay.addEventListener('click', closeMobileMenu);
     }
 
-    if (navLinks) {
-      navLinks.querySelectorAll('.drawer-menu-list a').forEach((link) => {
+    if (drawer) {
+      drawer.querySelectorAll('.drawer-menu-list a').forEach((link) => {
         link.addEventListener('click', closeMobileMenu);
       });
     }
