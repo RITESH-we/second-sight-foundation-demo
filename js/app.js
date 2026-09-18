@@ -1217,6 +1217,11 @@
     copyCoupon,
     filterByGoal,
     openAdminLogs,
-    exportOrdersToCSV
+    exportOrdersToCSV,
+    openMobileMenu,
+    closeMobileMenu,
+    selectChakra,
+    filterByChakra,
+    setMobActive
   };
 })();
