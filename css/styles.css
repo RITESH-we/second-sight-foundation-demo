@@ -2625,3 +2625,572 @@ button, a.btn {
   min-height: 44px;
   touch-action: manipulation;
 }
+
+
+/* ==========================================================================
+   MOBILE PERFECTION & FLUID RESPONSIVENESS (PHONES 320px - 768px)
+   ========================================================================== */
+
+/* Mobile Menu Backdrop */
+.mobile-menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(9, 13, 22, 0.7);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 140;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-drawer-header {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--theme-border);
+  margin-bottom: 12px;
+}
+
+.drawer-close-btn {
+  background: var(--theme-card-subtle);
+  border: 1px solid var(--theme-border);
+  color: var(--theme-text-main);
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.mobile-drawer-footer {
+  display: none;
+  padding: 16px 20px;
+  border-top: 1px solid var(--theme-border);
+  margin-top: auto;
+}
+
+.drawer-menu-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0 12px;
+}
+
+.drawer-menu-list .nav-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--theme-text-main);
+  transition: all 0.2s ease;
+}
+
+.drawer-menu-list .nav-link:hover, .drawer-menu-list .nav-link.active {
+  background: rgba(212, 175, 55, 0.12);
+  color: var(--primary-gold);
+}
+
+.drawer-menu-list .nav-link i {
+  width: 20px;
+  text-align: center;
+  color: var(--primary-gold);
+}
+
+/* Specific Media Query Overrides for Mobile Perfection */
+@media (max-width: 768px) {
+  /* Container padding */
+  .container {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  /* Header height */
+  .header-container {
+    height: 60px !important;
+  }
+
+  .brand-logo img {
+    height: 40px !important;
+  }
+
+  /* Top Bar Streamlining */
+  .top-announcement-bar {
+    padding: 6px 0 !important;
+    font-size: 0.78rem !important;
+  }
+
+  .d-none-sm {
+    display: none !important;
+  }
+
+  /* Trust Guarantee Ribbon on Mobile (horizontal scrolling pills) */
+  .trust-guarantee-bar {
+    padding: 6px 0 !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .trust-guarantee-bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .trust-bar-grid {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 16px !important;
+    padding: 0 14px !important;
+    width: max-content;
+  }
+
+  .trust-item {
+    font-size: 0.75rem !important;
+    white-space: nowrap !important;
+    background: rgba(212, 175, 55, 0.08);
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+  }
+
+  /* Slide-Out Navigation Drawer */
+  .nav-links {
+    position: fixed !important;
+    top: 0 !important;
+    right: -100% !important;
+    width: 82% !important;
+    max-width: 320px !important;
+    height: 100vh !important;
+    background: var(--theme-modal-bg) !important;
+    flex-direction: column !important;
+    padding: 0 !important;
+    gap: 0 !important;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5) !important;
+    transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    z-index: 150 !important;
+    overflow-y: auto !important;
+    display: flex !important;
+  }
+
+  .nav-links.active {
+    right: 0 !important;
+  }
+
+  .mobile-drawer-header, .mobile-drawer-footer {
+    display: flex !important;
+  }
+
+  /* Hero Section Mobile Polish */
+  .hero-section {
+    min-height: auto !important;
+    padding: 36px 0 48px !important;
+    display: block !important;
+  }
+
+  .hero-content-wrapper {
+    padding: 20px 0 !important;
+    max-width: 100% !important;
+  }
+
+  .hero-tag {
+    font-size: 0.75rem !important;
+    padding: 4px 12px !important;
+    margin-bottom: 14px !important;
+  }
+
+  .hero-title {
+    font-size: 1.85rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 14px !important;
+  }
+
+  .hero-subtitle {
+    font-size: 0.92rem !important;
+    line-height: 1.55 !important;
+    margin-bottom: 22px !important;
+  }
+
+  .hero-cta-group {
+    display: flex !important;
+    gap: 10px !important;
+    width: 100% !important;
+  }
+
+  .hero-cta-group .btn {
+    flex: 1 !important;
+    padding: 10px 12px !important;
+    font-size: 0.85rem !important;
+  }
+
+  .coupon-pill-banner {
+    display: flex !important;
+    width: 100% !important;
+    padding: 8px 12px !important;
+    font-size: 0.78rem !important;
+    justify-content: space-between !important;
+    margin-top: 16px !important;
+  }
+
+  .hero-features {
+    display: none !important; /* Cleaner mobile look */
+  }
+
+  .hero-slider-arrows {
+    display: none !important; /* Use swipe / auto */
+  }
+
+  /* Healing Matcher Section on Mobile */
+  .healing-matcher-section {
+    padding: 24px 0 !important;
+  }
+
+  .matcher-card {
+    padding: 20px 16px !important;
+    border-radius: var(--radius-lg) !important;
+  }
+
+  .matcher-card h3 {
+    font-size: 1.35rem !important;
+  }
+
+  .matcher-pills-row {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+    margin-top: 16px !important;
+  }
+
+  .matcher-pill-btn {
+    padding: 8px 10px !important;
+    font-size: 0.8rem !important;
+    justify-content: center !important;
+    border-radius: var(--radius-sm) !important;
+  }
+
+  /* Product Section & Filter Bar on Mobile */
+  .products-section {
+    padding: 40px 0 !important;
+  }
+
+  .section-header {
+    margin-bottom: 28px !important;
+  }
+
+  .section-title {
+    font-size: 1.75rem !important;
+  }
+
+  .section-subtitle {
+    font-size: 0.88rem !important;
+  }
+
+  .product-controls-bar {
+    padding: 10px !important;
+    gap: 10px !important;
+    top: 60px !important; /* Match compact header */
+  }
+
+  /* Horizontal Scrolling Category Pills on Mobile */
+  .category-filter-tabs {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    width: 100% !important;
+    padding-bottom: 4px !important;
+    scrollbar-width: none;
+    gap: 6px !important;
+  }
+  .category-filter-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .cat-tab-btn {
+    white-space: nowrap !important;
+    padding: 6px 14px !important;
+    font-size: 0.8rem !important;
+    flex-shrink: 0 !important;
+  }
+
+  .search-and-sort-group {
+    width: 100% !important;
+    display: flex !important;
+    gap: 8px !important;
+  }
+
+  .search-box-wrapper {
+    flex: 1 !important;
+    min-width: 0 !important;
+  }
+
+  .sort-select {
+    width: auto !important;
+    padding: 8px 10px !important;
+    font-size: 0.8rem !important;
+  }
+
+  /* 2-Column Responsive Products Grid on Phones */
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  .product-card {
+    border-radius: var(--radius-md) !important;
+  }
+
+  .product-img-wrapper {
+    height: 140px !important;
+    padding: 10px !important;
+  }
+
+  .product-badge-tag {
+    top: 8px !important;
+    left: 8px !important;
+    font-size: 0.65rem !important;
+    padding: 2px 6px !important;
+  }
+
+  .product-discount-tag {
+    top: 8px !important;
+    right: 36px !important;
+    font-size: 0.65rem !important;
+    padding: 2px 6px !important;
+  }
+
+  .wishlist-btn {
+    top: 8px !important;
+    right: 8px !important;
+    width: 26px !important;
+    height: 26px !important;
+    font-size: 0.75rem !important;
+  }
+
+  .product-card-body {
+    padding: 12px !important;
+  }
+
+  .product-category-label {
+    font-size: 0.68rem !important;
+    margin-bottom: 4px !important;
+  }
+
+  .product-name {
+    font-size: 0.92rem !important;
+    margin-bottom: 4px !important;
+    line-height: 1.3 !important;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 2.4em;
+  }
+
+  .product-rating-row {
+    font-size: 0.72rem !important;
+    margin-bottom: 6px !important;
+    gap: 4px !important;
+  }
+
+  .reviews-count {
+    display: none !important; /* Clean on mobile */
+  }
+
+  .product-tagline-text {
+    display: none !important; /* Save space on mobile cards */
+  }
+
+  .product-price-row {
+    margin-bottom: 10px !important;
+    gap: 6px !important;
+  }
+
+  .current-price {
+    font-size: 1.05rem !important;
+  }
+
+  .original-price {
+    font-size: 0.8rem !important;
+  }
+
+  .scarcity-pill {
+    font-size: 0.65rem !important;
+    margin-bottom: 6px !important;
+  }
+
+  .card-action-row {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 6px !important;
+  }
+
+  .add-to-cart-btn, .buy-now-btn {
+    padding: 8px 4px !important;
+    font-size: 0.75rem !important;
+    min-height: 38px !important;
+  }
+
+  .product-quick-view-btn {
+    display: none !important; /* Touch taps card directly */
+  }
+
+  /* Promo Banner on Mobile */
+  .promo-banner-section {
+    padding: 36px 0 !important;
+  }
+
+  .promo-banner-card {
+    padding: 24px 16px !important;
+    gap: 20px !important;
+  }
+
+  .promo-title {
+    font-size: 1.45rem !important;
+  }
+
+  .promo-desc {
+    font-size: 0.88rem !important;
+  }
+
+  .countdown-box-wrapper .time-unit {
+    padding: 6px 10px !important;
+    min-width: 48px !important;
+  }
+
+  .countdown-box-wrapper .time-unit strong {
+    font-size: 1.2rem !important;
+  }
+
+  /* About Us on Mobile */
+  .about-section {
+    padding: 44px 0 !important;
+  }
+
+  .about-visual img {
+    height: 240px !important;
+  }
+
+  .about-content h2 {
+    font-size: 1.7rem !important;
+  }
+
+  .about-lead-text {
+    font-size: 0.95rem !important;
+    margin-bottom: 18px !important;
+  }
+
+  .about-nav-tabs {
+    gap: 6px !important;
+  }
+
+  .about-tab-btn {
+    padding: 8px 10px !important;
+    font-size: 0.9rem !important;
+  }
+
+  /* Why Choose Cards */
+  .why-choose-section {
+    padding: 44px 0 !important;
+  }
+
+  .why-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .why-card {
+    padding: 20px !important;
+  }
+
+  /* Testimonials */
+  .testimonials-section {
+    padding: 44px 0 !important;
+  }
+
+  .testimonial-slide {
+    padding: 24px 18px !important;
+  }
+
+  .testimonial-text {
+    font-size: 0.95rem !important;
+    line-height: 1.55 !important;
+  }
+
+  /* Contact & Form */
+  .contact-section {
+    padding: 44px 0 !important;
+  }
+
+  .contact-info-card, .contact-form-card {
+    padding: 24px 16px !important;
+  }
+
+  /* Footer */
+  .main-footer {
+    padding: 50px 0 30px !important;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+
+  /* Modals on Mobile */
+  .modal-overlay {
+    padding: 10px !important;
+    align-items: flex-end !important; /* Bottom sheet experience */
+  }
+
+  .modal-container {
+    max-height: 88vh !important;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0 !important;
+  }
+
+  .quickview-grid {
+    padding: 20px 16px !important;
+    gap: 18px !important;
+  }
+
+  .quickview-img-box {
+    padding: 14px !important;
+    height: 180px !important;
+  }
+
+  .quickview-img-box img {
+    max-height: 150px !important;
+  }
+
+  /* Cart Drawer Mobile Full Width */
+  .cart-drawer {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .cart-footer {
+    padding: 16px !important;
+  }
+
+  /* Hide duplicate floating WhatsApp button on mobile because it's already in the mobile bottom navigation bar */
+  .floating-whatsapp-btn {
+    display: none !important;
+  }
+
+  .back-to-top-btn {
+    bottom: 74px !important;
+    right: 14px !important;
+    width: 38px !important;
+    height: 38px !important;
+  }
+}
