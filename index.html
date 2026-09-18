@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Second Sight Foundation - Bridging Ancient Wisdom with Modern Science. Explore premium wellness herbal teas, spiritual healing sprays, books, and holistic lifestyle products.">
+  <meta name="keywords" content="Second Sight Foundation, Herbal Tea, Ayurvedic Healing, Aura Sprays, Spiritual Wellness, Holistic Health">
+  <meta name="author" content="Second Sight Foundation">
+  <link rel="icon" href="assets/images/header2.png" type="image/png">
+  <title>Second Sight Foundation | Ancient Wisdom Meets Modern Science</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+
+  <!-- Custom Design System Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- 1. Top Announcement & Currency Bar -->
+  <div class="top-announcement-bar">
+    <div class="container top-bar-content">
+      <div class="rotating-ticker">
+        <i class="fa-solid fa-sparkles ticker-icon"></i>
+        <span id="tickerText" class="ticker-text">Restoring Sight, Renewing Lives</span>
+      </div>
+      <div class="top-bar-right">
+        <a href="tel:+919716517463" class="top-link d-none-sm">
+          <i class="fa-solid fa-phone"></i> +91-9716517463
+        </a>
+        <a href="mailto:secondsightfoundation@gmail.com" class="top-link d-none-sm">
+          <i class="fa-solid fa-envelope"></i> secondsightfoundation@gmail.com
+        </a>
+        
+        <!-- Live Currency Switcher -->
+        <div class="currency-selector-wrapper">
+          <button id="currencyBtn" class="currency-btn" type="button" aria-label="Select Currency">
+            <img id="currencyFlagImg" src="https://flagcdn.com/in.svg" alt="Currency Flag" class="currency-flag">
+            <span id="currencyLabel">INR (₹)</span>
+            <i class="fa-solid fa-chevron-down" style="font-size:0.65rem;"></i>
+          </button>
+          <div id="currencyDropdown" class="currency-dropdown">
+            <button class="currency-item" data-currency="INR">
+              <img src="https://flagcdn.com/in.svg" class="currency-flag" alt="INR"> INR (₹)
+            </button>
+            <button class="currency-item" data-currency="USD">
+              <img src="https://flagcdn.com/us.svg" class="currency-flag" alt="USD"> USD ($)
+            </button>
+            <button class="currency-item" data-currency="EUR">
+              <img src="https://flagcdn.com/eu.svg" class="currency-flag" alt="EUR"> EUR (€)
+            </button>
+            <button class="currency-item" data-currency="GBP">
+              <img src="https://flagcdn.com/gb.svg" class="currency-flag" alt="GBP"> GBP (£)
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Sticky Glassmorphic Main Header -->
+  <header class="main-header">
+    <div class="container header-container">
+      <a href="#hero" class="brand-logo">
+        <img src="assets/images/header2.png" alt="Second Sight Foundation Logo">
+      </a>
+
+      <ul id="mainNavLinks" class="nav-links">
+        <li><a href="#hero" class="nav-link active">Home</a></li>
+        <li><a href="#products" class="nav-link">Shop Products</a></li>
+        <li><a href="#about" class="nav-link">About Us</a></li>
+        <li><a href="#why-choose" class="nav-link">Our Purity</a></li>
+        <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+        <li><a href="#faq" class="nav-link">FAQ</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="header-actions">
+        <a href="#products" class="search-trigger-btn" title="Search catalog">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+        <button id="themeToggleBtn" class="theme-toggle-btn" aria-label="Toggle Dark and Light Mode" title="Switch Theme">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <button class="cart-trigger-btn" onclick="window.SSF.openCart()" title="View Shopping Bag">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span id="cartBadge" class="cart-badge">0</span>
+        </button>
+        <a href="#contact" class="btn btn-primary btn-sm d-none-sm">Consult Us</a>
+        <button id="mobileMenuToggle" class="mobile-menu-btn" aria-label="Toggle navigation menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 3. Dynamic Hero Carousel Section -->
+  <section id="hero" class="hero-section">
+    <div class="hero-slider-container">
+      <div class="hero-slide active">
+        <img src="assets/images/SSF-Banner.png" class="hero-bg-img" alt="Spiritual Wellness Banner 1">
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="hero-slide">
+        <img src="assets/images/bann1.png" class="hero-bg-img" alt="Herbal Teas Banner 2">
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="hero-slide">
+        <img src="assets/images/banner-home1.png" class="hero-bg-img" alt="Healing Energy Banner 3">
+        <div class="hero-overlay"></div>
+      </div>
+    </div>
+
+    <div class="container hero-content-wrapper">
+      <div class="hero-tag">
+        <i class="fa-solid fa-om"></i> Science Meets Ancient Wisdom
+      </div>
+      <h1 class="hero-title">
+        Awaken Body, Mind & <span>Spiritual Vision</span>
+      </h1>
+      <p class="hero-subtitle">
+        Explore authentic Ayurvedic teas, bio-energetic aura sprays, and holistic lifestyle creations crafted with clinical purity and sacred botanical wisdom.
+      </p>
+      <div class="hero-cta-group">
+        <a href="#products" class="btn btn-primary">
+          <i class="fa-solid fa-cart-shopping"></i> Explore Collection
+        </a>
+        <a href="#about" class="btn btn-outline" style="border-color:#fff; color:#fff;">
+          <i class="fa-solid fa-seedling"></i> Our Philosophy
+        </a>
+      </div>
+
+      <!-- Quick 50% Off Copyable Coupon -->
+      <div class="coupon-pill-banner" onclick="window.SSF.copyCoupon('SPIRIT50')" title="Click to copy coupon code!">
+        <i class="fa-solid fa-gift" style="color:var(--primary-gold);"></i>
+        <span>Festive Spiritual Special: <strong>Flat 50% OFF</strong></span>
+        <span class="coupon-copy-tag"><i class="fa-solid fa-copy"></i> SPIRIT50</span>
+      </div>
+
+      <div class="hero-features">
+        <div class="hero-feat-item">
+          <i class="fa-solid fa-award hero-feat-icon"></i>
+          <span>100% Certified Herbal Purity</span>
+        </div>
+        <div class="hero-feat-item">
+          <i class="fa-solid fa-truck-fast hero-feat-icon"></i>
+          <span>Free Express Shipping on ₹999+</span>
+        </div>
+        <div class="hero-feat-item">
+          <i class="fa-solid fa-hand-holding-heart hero-feat-icon"></i>
+          <span>Authentic Vedic Formulations</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-slider-arrows">
+      <button id="heroPrev" class="slider-arrow-btn" aria-label="Previous Slide"><i class="fa-solid fa-arrow-left"></i></button>
+      <button id="heroNext" class="slider-arrow-btn" aria-label="Next Slide"><i class="fa-solid fa-arrow-right"></i></button>
+    </div>
+  </section>
+
+  <!-- 3.5 Interactive Healing Matcher (Find Your Wellness Solution) -->
+  <section class="healing-matcher-section">
+    <div class="container">
+      <div class="matcher-card">
+        <span class="section-eyebrow"><i class="fa-solid fa-wand-magic-sparkles"></i> Personalized Vedic Guidance</span>
+        <h3 style="font-family:var(--font-serif);font-size:1.8rem;margin-bottom:8px;">What Is Your Primary Wellness Goal Today?</h3>
+        <p style="color:var(--theme-text-muted);font-size:0.95rem;max-width:620px;margin:0 auto;">
+          Click your wellness priority below to instantly filter the purest authentic remedies and botanical formulas curated for you.
+        </p>
+
+        <div class="matcher-pills-row">
+          <button class="matcher-pill-btn" onclick="window.SSF.filterByGoal('digestion')">
+            <i class="fa-solid fa-fire-burner" style="color:#ea580c;"></i> Digestion & Acidity
+          </button>
+          <button class="matcher-pill-btn" onclick="window.SSF.filterByGoal('heart')">
+            <i class="fa-solid fa-heart-pulse" style="color:#e11d48;"></i> Heart Health & BP
+          </button>
+          <button class="matcher-pill-btn" onclick="window.SSF.filterByGoal('energy')">
+            <i class="fa-solid fa-bolt" style="color:#f59e0b;"></i> Energy & Stamina
+          </button>
+          <button class="matcher-pill-btn" onclick="window.SSF.filterByGoal('sugar')">
+            <i class="fa-solid fa-dna" style="color:#0284c7;"></i> Blood Sugar Balance
+          </button>
+          <button class="matcher-pill-btn" onclick="window.SSF.filterByGoal('joints')">
+            <i class="fa-solid fa-bone" style="color:#d97706;"></i> Joint Pain & Arthritis
+          </button>
+          <button class="matcher-pill-btn" onclick="window.SSF.filterByGoal('focus')">
+            <i class="fa-solid fa-brain" style="color:#8b5cf6;"></i> Focus & Memory
+          </button>
+          <button class="matcher-pill-btn" onclick="window.SSF.filterByGoal('detox')">
+            <i class="fa-solid fa-shield-virus" style="color:#16a34a;"></i> Liver & Deep Detox
+          </button>
+          <button class="matcher-pill-btn" onclick="window.SSF.filterByGoal('aura')">
+            <i class="fa-solid fa-spa" style="color:#ec4899;"></i> Aura & Space Clearing
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Interactive Product Catalog Section -->
+  <section id="products" class="products-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Natural Healing Store</span>
+        <h2 class="section-title">Explore Our Curated Catalog</h2>
+        <p class="section-subtitle">
+          Therapeutic wellness blends, crystal aura sprays, superfoods, and holistic essentials designed for daily empowerment.
+        </p>
+      </div>
+
+      <!-- Controls: Category Tabs, Search, Sort -->
+      <div class="product-controls-bar">
+        <div id="categoryTabs" class="category-filter-tabs">
+          <button class="cat-tab-btn active" data-category="all">All Products</button>
+          <button class="cat-tab-btn" data-category="tea">Wellness Teas</button>
+          <button class="cat-tab-btn" data-category="sprays">Sprays & Aura Care</button>
+          <button class="cat-tab-btn" data-category="skincare">Skincare & Body</button>
+          <button class="cat-tab-btn" data-category="nutrition">Nutrition & Combos</button>
+          <button class="cat-tab-btn" data-category="lifestyle">Mind & Lifestyle</button>
+        </div>
+
+        <div class="search-and-sort-group">
+          <div class="search-box-wrapper">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" id="productSearchInput" placeholder="Search by name or benefit...">
+          </div>
+          <select id="productSortSelect" class="sort-select" aria-label="Sort products">
+            <option value="featured">Featured</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="rating">Highest Rated</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Dynamic Products Grid -->
+      <div id="productsGrid" class="products-grid">
+        <!-- Rendered reactively via app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Promotional Offer Banner -->
+  <section class="promo-banner-section">
+    <div class="container">
+      <div class="promo-banner-card">
+        <div>
+          <span class="promo-tag"><i class="fa-solid fa-fire"></i> Limited Time Sacred Offer</span>
+          <h2 class="promo-title">Biggest Spiritual & Healing Season Sale!</h2>
+          <p class="promo-desc">
+            Unlock up to 50% discount on Spiritual Sprays, Healing Kits, and Ayurvedic Wellness Teas. Use code <strong>SPIRIT50</strong> at checkout!
+          </p>
+          <!-- Live Flash Sale Countdown Clock -->
+          <div class="countdown-box-wrapper" id="saleCountdown">
+            <div class="time-unit"><strong id="cdHours">05</strong><span>Hours</span></div>
+            <div class="time-unit"><strong id="cdMins">48</strong><span>Minutes</span></div>
+            <div class="time-unit"><strong id="cdSecs">29</strong><span>Seconds</span></div>
+            <span style="color:var(--primary-gold);font-weight:600;font-size:0.85rem;"><i class="fa-solid fa-bolt"></i> Deal Active</span>
+          </div>
+
+          <br>
+          <button class="btn btn-primary" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
+            <i class="fa-solid fa-gift"></i> Claim Your Healing Offer
+          </button>
+        </div>
+        <div class="promo-badge-sale">
+          <h3>UP TO 50% OFF</h3>
+          <p>CODE: SPIRIT50</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. About Us Section with Tabbed Pillars -->
+  <section id="about" class="about-section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual">
+          <img src="assets/images/p3.jpeg" alt="About Second Sight Foundation">
+          <div class="about-stat-overlay">
+            <strong>10,000+</strong>
+            <span>Lives Touched & Empowered</span>
+          </div>
+        </div>
+
+        <div class="about-content">
+          <span class="section-eyebrow">Who We Are</span>
+          <h2>Harmonizing Science & Spirituality</h2>
+          <p class="about-lead-text">
+            Second Sight Foundation bridges ancient Vedic knowledge with modern analytical science, exploring the depths of human consciousness and physical vitality through a grounded, scientific lens.
+          </p>
+
+          <div class="about-nav-tabs">
+            <button class="about-tab-btn active" data-tab="mission">Our Mission</button>
+            <button class="about-tab-btn" data-tab="vision">Our Vision</button>
+            <button class="about-tab-btn" data-tab="values">Our Values</button>
+          </div>
+
+          <div id="tab-mission" class="about-tab-pane active">
+            <p class="about-tab-desc">"We create modern, meaningful products that blend science and spirituality to inspire, heal, and empower your lifestyle."</p>
+            <ul class="about-checklist">
+              <li><i class="fa-solid fa-circle-check check-icon"></i> Deliver premium, meaningful, and spiritual products</li>
+              <li><i class="fa-solid fa-circle-check check-icon"></i> Blend modern science with ancient wisdom</li>
+              <li><i class="fa-solid fa-circle-check check-icon"></i> Inspire, heal, and empower everyday lives</li>
+              <li><i class="fa-solid fa-circle-check check-icon"></i> Offer transformative holistic lifestyle solutions</li>
+            </ul>
+          </div>
+
+          <div id="tab-vision" class="about-tab-pane">
+            <p class="about-tab-desc">"Our vision is to be a global leader in holistic products that bridge tradition with innovation, enhancing well-being in every home we touch."</p>
+            <ul class="about-checklist">
+              <li><i class="fa-solid fa-circle-check check-icon"></i> Global leadership in holistic living solutions</li>
+              <li><i class="fa-solid fa-circle-check check-icon"></i> Bridge tradition with innovation for daily well-being</li>
+              <li><i class="fa-solid fa-circle-check check-icon"></i> Reach every home with positive energy products</li>
+              <li><i class="fa-solid fa-circle-check check-icon"></i> Build a worldwide community focused on mindful living</li>
+            </ul>
+          </div>
+
+          <div id="tab-values" class="about-tab-pane">
+            <p class="about-tab-desc">"We value authenticity, compassion, and excellence — delivering products with purpose and creating positive energy in all we do."</p>
+            <ul class="about-checklist">
+              <li><i class="fa-solid fa-circle-check check-icon"></i> Authenticity in every formulation and process</li>
+              <li><i class="fa-solid fa-circle-check check-icon"></i> Strict commitment to quality and transparency</li>
+              <li><i class="fa-solid fa-circle-check check-icon"></i> Compassion and customer care at the core</li>
+              <li><i class="fa-solid fa-circle-check check-icon"></i> Continuous innovation and ethical botanical practices</li>
+            </ul>
+          </div>
+
+          <a href="#contact" class="btn btn-outline">
+            Connect With Our Guides <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Why Choose Us Section -->
+  <section id="why-choose" class="why-choose-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Our Commitment</span>
+        <h2 class="section-title">Why Choose Second Sight Products</h2>
+        <p class="section-subtitle">
+          We offer authentic spiritual and wellness products engineered to elevate your daily quality of life with certified ingredients and positive bio-energy.
+        </p>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon-box"><i class="fa-solid fa-shield-halved"></i></div>
+          <h3>Premium Quality</h3>
+          <p>All our products are crafted with authentic botanicals, genuine crystals, and pure cold-pressed extracts to ensure maximum therapeutic effectiveness.</p>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon-box"><i class="fa-solid fa-certificate"></i></div>
+          <h3>Authentic & Certified</h3>
+          <p>Every product undergoes strict quality control and is ethically sourced from trusted organic growers and certified suppliers to guarantee botanical purity.</p>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon-box"><i class="fa-solid fa-truck-ramp-box"></i></div>
+          <h3>Fast & Secure Delivery</h3>
+          <p>Quick and tamper-proof delivery across India with protective eco-friendly packaging that safeguards your precious spiritual and wellness items.</p>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon-box"><i class="fa-solid fa-sun"></i></div>
+          <h3>Positive Energy</h3>
+          <p>Our formulas and crystal sprays are energetically charged with sacred mantras to invite positivity, emotional tranquility, and spiritual alignment.</p>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon-box"><i class="fa-solid fa-user-doctor"></i></div>
+          <h3>Expert Guidance</h3>
+          <p>Receive personalized advice from our wellness and spiritual experts on selecting the best herbal teas and rituals tailored to your constitution.</p>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon-box"><i class="fa-solid fa-heart-pulse"></i></div>
+          <h3>Trusted by Thousands</h3>
+          <p>Join a thriving community of over 10,000 satisfied seekers and families who have experienced positive bodily rejuvenation through our remedies.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Testimonials Section (Clean & Unique) -->
+  <section id="testimonials" class="testimonials-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow" style="color:var(--primary-gold);">Customer Experiences</span>
+        <h2 class="section-title">Words From Our Community</h2>
+        <p class="section-subtitle" style="color:#94a3b8;">
+          Authentic stories from individuals who transformed their bodily health and inner peace.
+        </p>
+      </div>
+
+      <div class="testimonial-carousel-container">
+        <div id="testimonialsTrack" class="testimonial-track">
+          <!-- Rendered dynamically without duplicates -->
+        </div>
+
+        <div class="testimonial-nav-btns">
+          <button id="testiPrev" class="slider-arrow-btn" aria-label="Previous Testimonial"><i class="fa-solid fa-arrow-left"></i></button>
+          <button id="testiNext" class="slider-arrow-btn" aria-label="Next Testimonial"><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Frequently Asked Questions -->
+  <section id="faq" class="faq-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Clear Answers</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">Have questions about our herbs, delivery, or rituals? Find answers below.</p>
+      </div>
+
+      <div id="faqContainer" class="faq-container">
+        <!-- Rendered dynamically via app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. Contact & Inquiry Section -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info-card">
+          <div>
+            <span class="promo-tag">Direct Support</span>
+            <h3>Get In Touch</h3>
+            <p class="contact-desc">
+              Have questions about an order or need guidance on choosing the right herbal teas? Our knowledgeable support team is here to assist you.
+            </p>
+
+            <div class="contact-methods">
+              <div class="contact-method-item">
+                <div class="contact-icon-box"><i class="fa-solid fa-phone"></i></div>
+                <div class="method-details">
+                  <h4>Phone Support</h4>
+                  <p><a href="tel:+919716517463">+91 9716517463</a></p>
+                  <p style="font-size:0.8rem;color:#94a3b8;">Mon - Sat, 10:00 AM - 7:00 PM IST</p>
+                </div>
+              </div>
+
+              <div class="contact-method-item">
+                <div class="contact-icon-box"><i class="fa-solid fa-envelope"></i></div>
+                <div class="method-details">
+                  <h4>Email Inquiries</h4>
+                  <p><a href="mailto:secondsightfoundation@gmail.com">secondsightfoundation@gmail.com</a></p>
+                </div>
+              </div>
+
+              <div class="contact-method-item">
+                <div class="contact-icon-box"><i class="fa-solid fa-location-dot"></i></div>
+                <div class="method-details">
+                  <h4>Center Location</h4>
+                  <p>AE-10, Ground Floor, Tagore Garden, Near Metro Station Gate No. 1 Exit, New Delhi, Delhi 110027, India</p>
+                </div>
+              </div>
+
+              <div class="contact-method-item">
+                <div class="contact-icon-box"><i class="fa-brands fa-whatsapp"></i></div>
+                <div class="method-details">
+                  <h4>Instant WhatsApp</h4>
+                  <p><a href="https://wa.me/919716517463" target="_blank" rel="noopener">Chat with our Wellness Advisor</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:30px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.1);font-size:0.85rem;color:#94a3b8;">
+            Registered Holistic Foundation • Trusted Since 2020
+          </div>
+        </div>
+
+        <div class="contact-form-card">
+          <h3>Send Us a Message</h3>
+          <p>Fill out the form below and we will respond within 24 hours.</p>
+
+          <form id="contactForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">First Name *</label>
+                <input type="text" id="firstName" required placeholder="Jatin">
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name *</label>
+                <input type="text" id="lastName" required placeholder="Sharma">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="emailAddr">Email Address *</label>
+                <input type="email" id="emailAddr" required placeholder="name@example.com">
+              </div>
+              <div class="form-group">
+                <label for="phoneNum">Phone Number *</label>
+                <input type="tel" id="phoneNum" required placeholder="+91 98765 43210">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="subjectSelect">Nature of Inquiry</label>
+              <select id="subjectSelect">
+                <option value="product">Product Consultation / Tea Selection</option>
+                <option value="order">Order Tracking & Shipping</option>
+                <option value="wholesale">Bulk & Practitioner Orders</option>
+                <option value="other">General Feedback</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="messageText">Message *</label>
+              <textarea id="messageText" rows="4" required placeholder="How can we assist your wellness journey today?"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">
+              <i class="fa-solid fa-paper-plane"></i> Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. Footer -->
+  <footer class="main-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="assets/images/footerlogo.webp" alt="Second Sight Foundation Logo" onerror="this.onerror=null; this.src='assets/images/header2.png'">
+        <p>
+          Second Sight Foundation bridges ancient Vedic wisdom with modern analytical science, cultivating physical health, emotional equilibrium, and higher awareness.
+        </p>
+        <div style="display:flex;gap:12px;color:var(--primary-gold);font-size:1.1rem;">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://wa.me/919716517463" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="footer-title">Explore</h4>
+        <ul class="footer-links">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#products">Shop All Products</a></li>
+          <li><a href="#about">About Our Mission</a></li>
+          <li><a href="#why-choose">Purity Commitment</a></li>
+          <li><a href="#testimonials">Community Reviews</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-title">Holistic Care</h4>
+        <ul class="footer-links">
+          <li><a href="#products" onclick="window.SSF.selectCategory('tea')">Wellness Teas</a></li>
+          <li><a href="#products" onclick="window.SSF.selectCategory('sprays')">Aura Cleansing</a></li>
+          <li><a href="#products" onclick="window.SSF.selectCategory('skincare')">Herbal Skincare</a></li>
+          <li><a href="#faq">Frequently Asked Questions</a></li>
+          <li><a href="#contact">Consult a Specialist</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-title">Center Location</h4>
+        <p style="font-size:0.88rem;color:#cbd5e1;margin-bottom:12px;">
+          AE-10, Ground Floor, Tagore Garden, Near Tagore Garden Metro Station Gate 1, New Delhi, Delhi 110027
+        </p>
+        <p style="font-size:0.88rem;color:#cbd5e1;margin-bottom:8px;">
+          <i class="fa-solid fa-phone text-warning"></i> +91 9716517463
+        </p>
+        <p style="font-size:0.88rem;color:#cbd5e1;">
+          <i class="fa-solid fa-envelope text-warning"></i> secondsightfoundation@gmail.com
+        </p>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>© 2025 Second Sight Foundation. All Rights Reserved.</p>
+      <p>Redesigned with Modern Responsive Architecture & Zero Bloat.</p>
+    </div>
+  </footer>
+
+  <!-- 12. Slide-Over Cart Drawer -->
+  <div id="cartDrawerOverlay" class="cart-drawer-overlay" onclick="window.SSF.closeCart()"></div>
+  <div id="cartDrawer" class="cart-drawer">
+    <div class="cart-header">
+      <h3>Your Shopping Bag</h3>
+      <button class="close-drawer-btn" onclick="window.SSF.closeCart()" aria-label="Close cart">&times;</button>
+    </div>
+
+    <div class="free-shipping-meter">
+      <div id="freeShippingText" class="meter-text">Add items to unlock Free Shipping!</div>
+      <div class="meter-bar-track">
+        <div id="freeShippingFill" class="meter-bar-fill" style="width: 0%;"></div>
+      </div>
+    </div>
+
+    <div id="cartItemsList" class="cart-items-list">
+      <!-- Populated dynamically via app.js -->
+    </div>
+
+    <div class="cart-footer">
+      <div class="promo-code-box">
+        <input type="text" id="promoCodeInput" placeholder="Discount code (e.g. SPIRIT50)">
+        <button id="applyPromoBtn" class="btn btn-dark btn-sm">Apply</button>
+      </div>
+
+      <div class="cart-summary-line">
+        <span>Subtotal</span>
+        <span id="cartSubtotal">₹0</span>
+      </div>
+      <div id="cartDiscountRow" class="cart-summary-line" style="display:none; color:#16a34a; font-weight:600;">
+        <span>Promo Discount (50%)</span>
+        <span id="cartDiscountAmount">-₹0</span>
+      </div>
+      <div class="cart-summary-line">
+        <span>Shipping Estimate</span>
+        <span id="cartShipping">Calculated</span>
+      </div>
+      <div class="cart-total-line">
+        <span>Total</span>
+        <span id="cartTotal">₹0</span>
+      </div>
+
+      <button class="btn btn-primary btn-block" style="margin-top:16px;" onclick="window.SSF.openCheckout()">
+        <i class="fa-solid fa-lock"></i> Proceed To Checkout
+      </button>
+    </div>
+  </div>
+
+  <!-- 13. Product Quick-View Modal -->
+  <div id="quickViewModal" class="modal-overlay" onclick="if(event.target===this) window.SSF.closeModal('quickViewModal')">
+    <div class="modal-container">
+      <button class="modal-close-btn" onclick="window.SSF.closeModal('quickViewModal')" aria-label="Close modal">&times;</button>
+      <div id="quickViewContent">
+        <!-- Injected dynamically via app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 14. Checkout Modal -->
+  <div id="checkoutModal" class="modal-overlay" onclick="if(event.target===this) window.SSF.closeModal('checkoutModal')">
+    <div class="modal-container" style="max-width:580px; padding:36px;">
+      <button class="modal-close-btn" onclick="window.SSF.closeModal('checkoutModal')" aria-label="Close modal">&times;</button>
+      <h3 style="font-family:var(--font-serif); font-size:1.6rem; margin-bottom:8px;">Secure Express Checkout</h3>
+      <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:24px;">Enter your delivery destination and select payment method.</p>
+
+      <form id="checkoutForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Full Name *</label>
+            <input type="text" required placeholder="Jatin Sharma">
+          </div>
+          <div class="form-group">
+            <label>Mobile Number *</label>
+            <input type="tel" required placeholder="+91 9716517463">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Delivery Address *</label>
+          <input type="text" required placeholder="House/Flat No., Street, Landmark">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>City *</label>
+            <input type="text" required placeholder="New Delhi">
+          </div>
+          <div class="form-group">
+            <label>Pincode *</label>
+            <input type="text" required placeholder="110027">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Payment Method</label>
+          <select required>
+            <option value="upi">UPI / Google Pay / PhonePe / Paytm</option>
+            <option value="card">Credit or Debit Card</option>
+            <option value="netbanking">Net Banking</option>
+            <option value="cod">Cash on Delivery (COD)</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block" style="margin-top:16px;">
+          <i class="fa-solid fa-check-circle"></i> Place Order Now
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 15. Toast Notifications & Floating Actions -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <a href="https://wa.me/919716517463" target="_blank" rel="noopener" class="floating-whatsapp-btn" title="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <button id="backToTop" class="back-to-top-btn" title="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- 16. Live Social Proof Sales Popup -->
+  <div id="liveSalePopup" class="live-sale-popup">
+    <img id="liveSaleImg" src="assets/products/digest-harmony.webp" alt="Purchased Product" class="live-sale-img">
+    <div class="live-sale-text">
+      <strong id="liveSaleBuyer">Rohan from Pune</strong>
+      <div>Purchased <span id="liveSaleItem">Digest Harmony Tea</span></div>
+      <div id="liveSaleTime" class="live-sale-time">4 minutes ago • Verified Order</div>
+    </div>
+    <button class="live-sale-close" onclick="document.getElementById('liveSalePopup').classList.remove('show')">&times;</button>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/products-data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
