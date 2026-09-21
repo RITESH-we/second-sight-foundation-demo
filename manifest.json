@@ -1,7 +1,8 @@
 {
+  "id": "/second-sight-foundation-demo/",
   "name": "Second Sight Foundation",
   "short_name": "Second Sight",
-  "description": "Authentic Ayurvedic herbal teas, bio-energetic aura sprays, and holistic Vedic lifestyle formulations bridging ancient science with modern well-being.",
+  "description": "Authentic Ayurvedic herbal teas, bio-energetic aura sprays, and holistic lifestyle formulations bridging ancient science with modern wellness.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
@@ -11,19 +12,53 @@
     "window-controls-overlay"
   ],
   "background_color": "#090d16",
-  "theme_color": "#d4af37",
-  "orientation": "portrait-primary",
+  "theme_color": "#090d16",
+  "orientation": "any",
   "categories": [
     "shopping",
     "lifestyle",
-    "health"
+    "health",
+    "wellness"
   ],
   "dir": "ltr",
-  "lang": "en",
+  "lang": "en-US",
+  "iarc_rating_id": "e84b072d-71b3-4d3e-86ae-31a8ce4e53b7",
+  "prefer_related_applications": false,
+  "related_applications": [],
   "icons": [
+    {
+      "src": "assets/images/icons/icon-96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/images/icons/icon-128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/images/icons/icon-144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
     {
       "src": "assets/images/icons/icon-192.png",
       "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/images/icons/icon-256.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/images/icons/icon-384.png",
+      "sizes": "384x384",
       "type": "image/png",
       "purpose": "any"
     },
@@ -34,17 +69,39 @@
       "purpose": "any"
     },
     {
-      "src": "assets/images/icons/icon-maskable.png",
+      "src": "assets/images/icons/icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "assets/images/icons/icon-maskable-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
     }
   ],
+  "screenshots": [
+    {
+      "src": "assets/images/screenshots/screenshot-narrow.png",
+      "sizes": "540x960",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Second Sight Mobile Wellness Store"
+    },
+    {
+      "src": "assets/images/screenshots/screenshot-wide.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Second Sight Foundation E-Commerce Platform"
+    }
+  ],
   "shortcuts": [
     {
-      "name": "Shop Wellness Teas",
+      "name": "Shop Herbal Teas",
       "short_name": "Teas",
-      "description": "Explore Ayurvedic herbal teas for digestion, heart, and vitality",
+      "description": "Ayurvedic wellness teas for digestion, heart, and vitality",
       "url": "./index.html#products",
       "icons": [
         {
@@ -54,9 +111,9 @@
       ]
     },
     {
-      "name": "Kundalini & Chakras",
+      "name": "Kundalini & Third Eye",
       "short_name": "Chakras",
-      "description": "Third eye activation and 7 chakras alignment",
+      "description": "Third Eye activation and 7 Chakras alignment",
       "url": "./index.html#kundalini-chakras",
       "icons": [
         {
@@ -65,7 +122,5 @@
         }
       ]
     }
-  ],
-  "related_applications": [],
-  "prefer_related_applications": false
+  ]
 }
