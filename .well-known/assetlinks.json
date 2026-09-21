@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "io.github.ritesh_we.twa",
+      "sha256_cert_fingerprints": [
+        "61:3F:D3:1F:17:55:F6:6C:68:B8:3F:D4:A7:76:69:C5:5F:9E:D2:AE:08:E7:0F:F6:1D:D0:C4:DE:B3:62:F1:F3"
+      ]
+    }
+  }
+]
